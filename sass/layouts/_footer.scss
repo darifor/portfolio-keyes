@@ -1,0 +1,97 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.footer {
+    background-color: $color-light-black;
+
+    &__container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 39px;
+        padding-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        @include breakpoint(tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            padding-top: 29px;
+            padding-bottom: 40px;
+            padding-left: 4%;
+            padding-right: 4%;
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 1110px;
+            padding-top: 47px;
+            padding-bottom: 92px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 3%;
+            width: 94%;
+            height: 1px;
+            background-color: white;
+
+            @include breakpoint(desktop) {
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+
+    &__logo {
+        margin-bottom: 20px;
+
+        @include breakpoint(tablet) {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            transition: color 0.5s ease;
+
+            &:hover {
+                color: $color-green;
+            }
+
+            @include breakpoint(tablet) {
+                font-size: 32px;
+                line-height: 32px;
+                letter-spacing: -0.4444444477558136px;
+            }
+        }
+    }
+
+    &__rrss {
+
+        ul {
+            @include reset-list();
+
+            @include breakpoint(tablet) {
+                gap: 32px;
+            }
+
+            a img {
+                transition: transform 0.5s ease;
+
+                &:hover {
+                    transform: rotate(45deg) scale(1.3);
+                    fill: $color-green;
+                } 
+            }
+        }
+    }
+}

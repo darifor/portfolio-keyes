@@ -1,0 +1,198 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.form {
+    background-color: $color-light-black;
+    position: relative;
+
+    @include breakpoint(tablet) {
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 20px;
+            left: -4%;
+            width: 188px;
+            height: 129px;
+            background-image: url('../../img/elipses_right.svg');
+        }
+    }
+
+    @include breakpoint(desktop) {
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 20px;
+            left: -77px;
+            width: 430px;
+            height: 129px;
+            background-image: url('../../img/elipses_right-full.svg');
+            background-repeat: no-repeat;
+        }
+    }
+
+
+
+    &__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 60px;
+        padding-bottom: 87px;
+        padding-left: 4%;
+        padding-right: 4%;
+
+        @include breakpoint(tablet) {
+            max-width: 64%;
+            padding-bottom: 92px;
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 1110px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &__intro {
+        text-align: center;
+        margin-bottom: 50px;
+
+        @include breakpoint(desktop) {
+            flex: 1;
+            text-align: left;
+            max-width: 40%;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: -1.1363636255264282px;
+            margin-bottom: 20px;
+
+            @include breakpoint(tablet) {
+                font-size: 72px;
+                line-height: 72px;
+                letter-spacing: -2.045454502105713px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 88px;
+                line-height: 88px;
+                letter-spacing: -2.5px;
+                margin-bottom: 36px;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 26px;
+
+            @include breakpoint(tablet) {
+                font-size: 18px;
+                line-height: 28px;
+            }
+        }
+    }
+
+    &__fields {
+        position: relative;
+
+        @include breakpoint(desktop) {
+            flex: 1;
+            max-width: 40%;
+            padding: 20px 0;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -4%;
+            width: 188px;
+            height: 129px;
+            background-image: url('../../img/elipses_right.svg');
+
+            @include breakpoint(tablet) {
+                display: none;
+            }
+        }
+
+        form {
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            display: none;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: 1px solid white;
+            background-color: $color-light-black;
+            color: #fff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 107px;
+            margin-bottom: 32px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 26px;
+            letter-spacing: -0.2222222238779068px;
+
+            &:focus {
+                outline: none;
+                border-bottom: 1px solid $color-green;
+            }
+        }
+
+        input[type="submit"] {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 26px;
+            letter-spacing: 2.2857143878936768px;
+            text-transform: uppercase;
+            width: auto;
+            padding: 0;
+            border: none;
+            margin-bottom: 0;
+
+            &:hover {
+                color: $color-green;
+            }
+        }
+    }
+
+    &__button {
+        position: relative;
+        text-align: right;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 156px;
+            height: 2px;
+            background-color: $color-green;
+        }
+    }
+}

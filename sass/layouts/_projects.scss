@@ -1,0 +1,118 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.projects {
+
+    &__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        padding: 0 4%;
+
+        @include breakpoint(tablet) {
+            flex-direction: row;
+            row-gap: 60px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 100px;
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 1110px;
+            margin-bottom: 139px;
+            padding: 0;
+        }
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+
+        @include breakpoint(tablet) {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: -1.1363636255264282px;
+
+            @include breakpoint(tablet) {
+                font-size: 72px;
+                line-height: 72px;
+                letter-spacing: -2.045454502105713px;
+            }
+        }
+
+        &-contact {
+            @include keyes-link();
+        }
+    }
+
+    &__article {
+        margin-bottom: 40px;
+        position: relative;
+
+        @include breakpoint(tablet) {
+            max-width: 48%;
+            margin-bottom: 0;
+        }
+
+        @include breakpoint(desktop) {
+            &:hover img {
+                filter: brightness(0.5);
+                cursor: pointer;
+            }
+
+            &:hover .projects__links {
+                filter: opacity(1);
+            }
+        }
+
+        &-image {
+            width: 100%;
+            margin-bottom: 20px;
+            transition: filter 0.3s ease;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+    }
+
+    &__tecs {
+        @include reset-list();
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    &__links {
+        @include reset-list();
+        gap: 30px;
+        @include keyes-link();
+
+        @include breakpoint(desktop) {
+            position: absolute;
+            top: 130px;
+            left: 37%;
+            width: 30%;
+            flex-direction: column;
+            gap: 48px;
+            align-items: center;
+            filter: opacity(0);
+            transition: opacity 0.3s ease;
+        }
+    }
+}

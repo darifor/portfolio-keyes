@@ -1,0 +1,210 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.hero {
+    position: relative;
+
+    @include breakpoint(desktop) {
+        &::before {
+            content: "";
+            position: absolute;
+            top: -69px;
+            left: 0;
+            width: 430px;
+            height: 129px;
+            background-image: url('../../img/elipses_right-full.svg');
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        @include breakpoint(tablet) {
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-bottom: 60px;
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 1110px;
+            margin-bottom: 104px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 93px;
+            right: 0;
+            width: 64px;
+            height: 129px;
+            background-image: url('../../img/oval.svg');
+
+            @include breakpoint(tablet) {
+                bottom: 0;
+                top: auto;
+            }
+
+            @include breakpoint(desktop) {
+                background-image: url('../../img/full-circle.svg');
+                right: 34%;
+                bottom: 80px;
+                width: 129px;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 188px;
+            height: 129px;
+            background-image: url('../../img/elipses_right.svg');
+
+            @include breakpoint(tablet) {
+                top: -67px;
+                left: 0px;
+                width: 270px;
+                height: 182px;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            @include breakpoint(desktop) {
+                display: none;
+            }
+        }
+    }
+
+    &__img {
+        max-width: 46%;
+        margin-bottom: 40px;
+        z-index: 0;
+
+        @include breakpoint(tablet) {
+            order: 1;
+            max-width: 42%;
+            margin-bottom: 0;
+            z-index: -1;
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 40%;
+        }
+    }
+
+    &__content {
+        padding: 0 16px;
+
+        @include breakpoint(tablet) {
+            padding: 0;
+            padding-left: 4%;
+            max-width: 62%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 75%;
+            padding: 0;
+        }
+
+        .greet {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: -1.1363636255264282px;
+            text-align: center;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            margin-bottom: 24px;
+
+            &-tablet {
+                display: none;
+
+                @include breakpoint(tablet) {
+                    display: block;
+                }
+
+                @include breakpoint(desktop) {
+                    display: none;
+                }
+            }
+
+            &-mobile {
+
+                @include breakpoint(tablet) {
+                    display: none;
+                }
+
+                @include breakpoint(desktop) {
+                    display: block;
+                }
+            }
+
+            @include breakpoint(tablet) {
+                font-size: 72px;
+                line-height: 72px;
+                letter-spacing: -2.045454502105713px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                margin-bottom: 60px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 88px;
+                line-height: 88px;
+                letter-spacing: -2.5px;
+            }
+
+            .subrayado {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                    width: 98%;
+                    height: 4px;
+                    background-color: $color-green;
+                }
+            }
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 26px;
+            text-align: center;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            margin-bottom: 24px;
+
+            @include breakpoint(tablet) {
+                font-size: 18px;
+                line-height: 28px;
+                text-align: left;
+                margin-bottom: 34px;
+            }
+
+            @include breakpoint(desktop) {
+                max-width: 54%;
+            }
+        }
+
+        &-contact {
+            @include keyes-link();
+        }
+    }
+}
