@@ -49,6 +49,13 @@
                 line-height: 72px;
                 letter-spacing: -2.045454502105713px;
             }
+
+            @include breakpoint(desktop) {
+                font-size: 88px;
+                line-height: 88px;
+                letter-spacing: -2.5px;
+
+            }
         }
 
         &-contact {
@@ -68,7 +75,6 @@
         @include breakpoint(desktop) {
             &:hover img {
                 filter: brightness(0.5);
-                cursor: pointer;
             }
 
             &:hover .projects__links {
